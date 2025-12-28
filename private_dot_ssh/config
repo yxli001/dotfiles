@@ -1,0 +1,56 @@
+Host cycore-beta
+  HostName cycorecibeta.ucsd.edu
+  User cycore
+
+Host cycore
+  HostName cycoreci.ucsd.edu
+  User cycore
+
+Host ieng6
+  HostName ieng6.ucsd.edu
+  User yil327
+
+Host expanse
+  HostName login.expanse.sdsc.edu
+  User yli70
+
+Host test-a
+  HostName 132.249.64.110
+  User yil327
+
+Host test-b
+  HostName 132.249.64.111
+  User yil327
+
+Host test-c
+  HostName 132.249.64.112
+  User yil327
+
+Host curtesy
+  HostName gf9f8b3.glddns.com 
+  User yixuan
+  Port 22222
+
+Host zixian
+  HostName 132.249.64.152
+  User yil327
+
+Host shrek
+  HostName scc.sdsc.edu
+  User yil327
+
+Host lilo
+  HostName 132.249.64.190
+  User yil327 
+
+Host stitch
+  HostName 132.249.64.217
+  User yil327 
+
+Host greg
+  HostName 100.90.26.5 
+  User yxli
+
+Host pi0
+  HostName 100.104.62.74
+  User yxli

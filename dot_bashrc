@@ -1,0 +1,107 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+
+PATH="$PATH:/opt/jetbrains/idea-IU-252.27397.103/bin"
+
+export PATH
+export SYSTEMD_EDITOR=vim
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+alias sudo='sudo '
+alias vim="nvim"
+alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
+fi
+unset rc
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# Ensure nvm is loaded (adjust this path if your nvm is elsewhere)
+export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# Your auto-use function (works in bash too)
+nvm_auto_use() {
+  local node_version
+  node_version="$(nvm version)"
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version="$(nvm version "$(cat "${nvmrc_path}")")"
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+# Wrap cd to trigger nvm_auto_use whenever you change directories
+cd() {
+  # activate venv
+  if [[ -z "$VIRTUAL_ENV" ]]; then
+    ## If env folder is found then activate the vitualenv
+    if [[ -d ./.env ]]; then
+      source ./.env/bin/activate
+    fi
+  else
+    ## check the current folder belong to earlier VIRTUAL_ENV folder
+    # if yes then do nothing
+    # else deactivate
+    parentdir="$(dirname "$VIRTUAL_ENV")"
+    if [[ "$PWD"/ != "$parentdir"/* ]]; then
+      deactivate
+    fi
+  fi
+
+  if builtin cd "$@"; then
+    # only run in interactive shells and when nvm exists
+    if [[ $- == *i* ]] && command -v nvm >/dev/null 2>&1; then
+      nvm_auto_use
+    fi
+    return 0
+  else
+    return $?
+  fi
+}
+
+# Run once on shell start (useful if you start inside a project)
+if [[ $- == *i* ]] && command -v nvm >/dev/null 2>&1; then
+  nvm_auto_use
+fi
+
+eval "$(starship init bash)"
+
+# pnpm
+export PNPM_HOME="/home/yxli/.local/share/pnpm"
+case ":$PATH:" in
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
