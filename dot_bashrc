@@ -20,7 +20,6 @@ export SYSTEMD_EDITOR=vim
 
 alias sudo='sudo '
 alias vim="nvim"
-alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
