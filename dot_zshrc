@@ -92,6 +92,22 @@ nvm_auto_use
 # Aliases
 alias la="ls -a"
 
+function setup_tailscale_alias() {
+  # Define the expected path to the Tailscale CLI executable
+  local TS_PATH="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
+  # Check if the file exists and is executable (-f for file existence, -x for executable)
+  if [[ -f "$TS_PATH" && -x "$TS_PATH" ]]; then
+    # Create the alias if the conditions are met
+    alias tailscale="$TS_PATH"
+  else
+    echo "Tailscale application not found at $TS_PATH. Alias not set."
+  fi
+}
+
+setup_tailscale_alias
+
+
 if command -v nvim &> /dev/null; then
     alias vim='nvim'
     alias vi='nvim'
