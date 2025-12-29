@@ -1,0 +1,8 @@
+{{- /* Global allow list */ -}}
+{{- include "keys/authorized_keys_allowlist" -}}
+
+{{- /* Local additional allow list not tracked by chezmoi */ -}}
+{{- $local := joinPath .chezmoi.homeDir ".ssh" "authorized_keys.local" -}}
+{{- if lstat $local -}}
+{{- include $local -}}
+{{- end -}}
