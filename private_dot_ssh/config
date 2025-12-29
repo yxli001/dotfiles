@@ -26,10 +26,9 @@ Host test-c
   HostName 132.249.64.112
   User yil327
 
-Host curtesy
-  HostName gf9f8b3.glddns.com 
-  User yixuan
-  Port 22222
+Host rock0 
+  HostName 192.168.111.50
+  User yil327 
 
 Host zixian
   HostName 132.249.64.152
@@ -56,5 +55,5 @@ Host pi0
   User yxli
 
 Host pi1
-  HostName 192.168.0.222
+  HostName 100.117.6.12
   User yxli
