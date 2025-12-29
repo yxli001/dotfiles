@@ -13,13 +13,18 @@ fi
 PATH="$PATH:/opt/jetbrains/idea-IU-252.27397.103/bin"
 
 export PATH
-export SYSTEMD_EDITOR=vim
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
 alias sudo='sudo '
-alias vim="nvim"
+
+if command -v nvim &>/dev/null; then
+  alias vim='nvim'
+  alias vi='nvim'
+  export EDITOR='nvim'
+  export SYSTEMD_EDITOR='nvim'
+fi
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
