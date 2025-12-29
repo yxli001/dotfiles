@@ -27,8 +27,8 @@ Host test-c
   User yil327
 
 Host rock0 
-  HostName 192.168.111.50
-  User yil327 
+  HostName 100.67.215.116
+  User admin 
 
 Host zixian
   HostName 132.249.64.152
