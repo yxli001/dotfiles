@@ -1,0 +1,6 @@
+[include]
+  path = ~/.config/git/common.conf
+
+[includeIf "gitdir:~/its/"]
+  path = ~/.config/git/its.conf
+
