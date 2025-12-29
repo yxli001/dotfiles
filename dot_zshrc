@@ -91,8 +91,13 @@ nvm_auto_use
 
 # Aliases
 alias la="ls -a"
-alias vim="nvim"
 
+if command -v nvim &> /dev/null; then
+    alias vim='nvim'
+    alias vi='nvim'
+    export EDITOR='nvim'
+    export SYSTEMD_EDITOR='nvim'
+fi
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
