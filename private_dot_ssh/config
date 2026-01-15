@@ -46,6 +46,10 @@ Host stitch
   HostName 132.249.64.217
   User yil327 
 
+Host waiter
+  HostName waiter.ucsd.edu
+  User yil327
+
 Host greg
   HostName 100.90.26.5 
   User yxli
