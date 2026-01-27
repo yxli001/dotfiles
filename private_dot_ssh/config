@@ -50,6 +50,10 @@ Host waiter
   HostName waiter.ucsd.edu
   User yil327
 
+Host dsmlp
+  HostName dsmlp-login.ucsd.edu
+  User yil327
+
 Host greg
   HostName 100.90.26.5 
   User yxli
