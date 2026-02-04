@@ -38,6 +38,10 @@ Host shrek
   HostName scc.sdsc.edu
   User yil327
 
+Host fiona
+  HostName 132.249.64.114
+  User yil327
+
 Host lilo
   HostName 132.249.64.190
   User yil327 
@@ -53,6 +57,14 @@ Host waiter
 Host dsmlp
   HostName dsmlp-login.ucsd.edu
   User yil327
+
+Host vscode-dsmlp
+    HostName dsmlp-login.ucsd.edu
+    HostKeyAlias vscode-dsmlp
+    IdentitiesOnly yes
+    User yil327
+    ConnectTimeout 100
+    ProxyCommand ssh -i ~/.ssh/id_ed25519 yil327@dsmlp-login.ucsd.edu /dsmlp/home-fs03/74/874/yil327/start-vscode.sh
 
 Host greg
   HostName 100.90.26.5 
