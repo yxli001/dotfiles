@@ -27,8 +27,14 @@ Host test-c
   User yil327
 
 Host rock0 
-  HostName 100.67.215.116
-  User admin 
+  HostName 132.249.64.33
+  User yil327
+  ForwardAgent yes
+
+Host rock*
+  User yil327
+  ProxyJump rock0
+  ForwardAgent yes
 
 Host zixian
   HostName 132.249.64.152
