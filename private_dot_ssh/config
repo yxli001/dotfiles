@@ -26,15 +26,16 @@ Host test-c
   HostName 132.249.64.112
   User yil327
 
-Host rock0 
+Host rock0
   HostName 132.249.64.33
+  Port 11111
   User yil327
   ForwardAgent yes
 
-Host rock*
+Host rock* !rock0
   User yil327
-  ProxyJump rock0
   ForwardAgent yes
+  ProxyJump rock0
 
 Host zixian
   HostName 132.249.64.152
