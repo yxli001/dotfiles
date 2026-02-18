@@ -31,10 +31,12 @@ Host rock0
   Port 11111
   User yil327
   ForwardAgent yes
+  AddKeysToAgent yes
 
 Host rock* !rock0
   User yil327
   ForwardAgent yes
+  AddKeysToAgent yes
   ProxyJump rock0
 
 Host zixian
@@ -64,11 +66,15 @@ Host waiter
 Host dsmlp
   HostName dsmlp-login.ucsd.edu
   User yil327
+  ForwardAgent yes
+  AddKeysToAgent yes
 
 Host vscode-dsmlp
     HostName dsmlp-login.ucsd.edu
     HostKeyAlias vscode-dsmlp
     IdentitiesOnly yes
+    ForwardAgent yes
+    AddKeysToAgent yes
     User yil327
     ConnectTimeout 100
     ProxyCommand ssh -i ~/.ssh/id_ed25519 yil327@dsmlp-login.ucsd.edu /dsmlp/home-fs03/74/874/yil327/start-vscode.sh
