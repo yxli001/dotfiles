@@ -54,7 +54,7 @@ Host lilo
   User yil327 
 
 Host stitch
-  HostName 132.249.64.217
+  HostName 132.249.64.67
   User yil327 
 
 Host waiter
