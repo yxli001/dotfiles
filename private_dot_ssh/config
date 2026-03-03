@@ -51,6 +51,10 @@ Host fiona
   HostName 132.249.64.114
   User yil327
 
+Host monster
+  HostName 132.249.64.67
+  User yil327
+
 Host lilo
   HostName 132.249.64.190
   User yil327 
