@@ -31,17 +31,22 @@ Host rock0
   Port 11111
   User yil327
   ForwardAgent yes
-  AddKeysToAgent yes
+  ProxyJump router-rock
 
 Host rock* !rock0
   User yil327
   ForwardAgent yes
-  AddKeysToAgent yes
   ProxyJump rock0
+
+Host router-rock
+  HostName 132.249.64.213
+  ForwardAgent yes
+  User yil327 
 
 Host zixian
   HostName 132.249.64.152
   User yil327
+  LocalForward 5000 127.0.0.1:5000
 
 Host shrek
   HostName scc.sdsc.edu
