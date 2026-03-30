@@ -1,0 +1,35 @@
+#!/bin/sh
+set -eu
+
+PREFIX="$HOME/miniconda3"
+
+if [ -x "$PREFIX/bin/conda" ]; then
+  exit 0
+fi
+
+case "$(uname -s)-$(uname -m)" in
+  Linux-x86_64)
+    INSTALLER="Miniconda3-latest-Linux-x86_64.sh"
+    ;;
+  Linux-aarch64|Linux-arm64)
+    INSTALLER="Miniconda3-latest-Linux-aarch64.sh"
+    ;;
+  Darwin-arm64)
+    INSTALLER="Miniconda3-latest-MacOSX-arm64.sh"
+    ;;
+  Darwin-x86_64)
+    INSTALLER="Miniconda3-latest-MacOSX-x86_64.sh"
+    ;;
+  *)
+    echo "Unsupported platform: $(uname -s)-$(uname -m)" >&2
+    exit 1
+    ;;
+esac
+
+tmpdir="$(mktemp -d)"
+trap 'rm -rf "$tmpdir"' EXIT
+
+curl -fsSL "https://repo.anaconda.com/miniconda/$INSTALLER" -o "$tmpdir/miniconda.sh"
+sh "$tmpdir/miniconda.sh" -b -p "$PREFIX"
+
+"$PREFIX/bin/conda" config --set auto_activate_base false
