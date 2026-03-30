@@ -1,12 +1,11 @@
 autoload -Uz compinit
 compinit
 
-for f in "$HOME"/.config/shell/*.sh; do
-  [ -r "$f" ] && . "$f"
-done
-unset f
+[ -r "$HOME/.config/shell/common.sh" ] && source "$HOME/.config/shell/common.sh"
 
 for f in "$HOME"/.config/shell/zsh/*.sh; do
   [ -r "$f" ] && source "$f"
 done
 unset f
+
+[ -r "$HOME/.config/shell/zsh.local.sh" ] && source "$HOME/.config/shell/zsh.local.sh"
