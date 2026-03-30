@@ -1,11 +1,13 @@
 # .bashrc
 [ -f /etc/bashrc ] && . /etc/bashrc
 
-[ -r "$HOME/.config/shell/common.sh" ] && . "$HOME/.config/shell/common.sh"
+for f in "$HOME"/.config/shell/*.sh; do
+  [ -r "$f" ] && . "$f"
+done
+unset f
 
 for f in "$HOME"/.config/shell/bash/*.sh; do
   [ -r "$f" ] && . "$f"
 done
 unset f
 
-[ -r "$HOME/.config/shell/bash.local.sh" ] && . "$HOME/.config/shell/bash.local.sh"
