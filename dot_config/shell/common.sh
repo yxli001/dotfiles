@@ -34,6 +34,7 @@ if command -v nvim >/dev/null 2>&1; then
   alias vi='nvim'
   export EDITOR='nvim'
   export SYSTEMD_EDITOR='nvim'
+  git config --global core.editor "nvim"
 fi
 
 export PATH

@@ -4,3 +4,5 @@
 [includeIf "gitdir:~/its/"]
   path = ~/.config/git/its.conf
 
+[core]
+	editor = nvim
