@@ -54,6 +54,10 @@ Host monster
   HostName 132.249.64.67
   User yil327
 
+Host khai
+  HostName 132.249.64.73
+  User yil327
+
 Host lilo
   HostName 132.249.64.190
   User yil327 
