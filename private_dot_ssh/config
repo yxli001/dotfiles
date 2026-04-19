@@ -26,21 +26,9 @@ Host test-c
   HostName 132.249.64.112
   User yil327
 
-Host rock*
-  User yil327
-  ForwardAgent yes
-  AddKeysToAgent yes
-  ProxyJump router-rock 
-
-Host router-rock
-  HostName 132.249.64.213
-  User yil327 
-  LocalForward 3000 127.0.0.1:8087
-
 Host zixian
   HostName 132.249.64.152
   User yil327
-  LocalForward 5000 127.0.0.1:5000
 
 Host shrek
   HostName scc.sdsc.edu
