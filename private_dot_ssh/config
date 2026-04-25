@@ -30,6 +30,15 @@ Host zixian
   HostName 132.249.64.152
   User yil327
 
+Host matthew 
+  HostName 132.249.64.35
+  User yil327
+
+Host shrek-ipa
+  HostName 10.1.0.3
+  User yil327
+  ProxyJump shrek  
+
 Host shrek
   HostName scc.sdsc.edu
   User yil327
