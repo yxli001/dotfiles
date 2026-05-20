@@ -1,3 +1,6 @@
+Host *
+  User yil327
+
 Host cycore-beta
   HostName cycorecibeta.ucsd.edu
   User cycore
@@ -8,7 +11,6 @@ Host cycore
 
 Host ieng6
   HostName ieng6.ucsd.edu
-  User yil327
 
 Host expanse
   HostName login.expanse.sdsc.edu
@@ -16,72 +18,59 @@ Host expanse
 
 Host test-a
   HostName 132.249.64.110
-  User yil327
 
 Host test-b
   HostName 132.249.64.111
-  User yil327
 
 Host test-c
   HostName 132.249.64.112
-  User yil327
-
-Host zixian
-  HostName 132.249.64.152
-  User yil327
-
-Host matthew 
-  HostName 132.249.64.35
-  User yil327
-
-Host shrek-ipa
-  HostName 10.1.0.3
-  User yil327
-  ProxyJump shrek  
 
 Host shrek
   HostName scc.sdsc.edu
-  User yil327
+
+Host shrek-ipa
+  HostName 10.1.0.3
+  ProxyJump shrek
 
 Host fiona
-  HostName 132.249.64.114
-  User yil327
+  HostName 132.249.248.229
+
+Host zixian
+  ProxyJump fiona
+  HostName 10.2.1.11
+
+Host gauri
+  ProxyJump fiona
+  HostName 10.2.1.14
+
+Host matthew 
+  ProxyJump fiona
+  HostName 10.2.1.12
 
 Host monster
-  HostName 132.249.64.67
-  User yil327
+  ProxyJump fiona
+  HostName 10.2.1.10
 
 Host khai
-  HostName 132.249.64.73
-  User yil327
-
-Host lilo
-  HostName 132.249.64.190
-  User yil327 
-
-Host stitch
-  HostName 132.249.64.67
-  User yil327 
+  ProxyJump fiona
+  HostName 10.2.1.13
 
 Host waiter
   HostName waiter.ucsd.edu
-  User yil327
 
 Host dsmlp
   HostName dsmlp-login.ucsd.edu
-  User yil327
   ForwardAgent yes
   AddKeysToAgent yes
 
 Host vscode-dsmlp
-    HostName dsmlp-login.ucsd.edu
-    HostKeyAlias vscode-dsmlp
-    IdentitiesOnly yes
-    ForwardAgent yes
-    AddKeysToAgent yes
-    User yil327
-    ConnectTimeout 100
-    ProxyCommand ssh -i ~/.ssh/id_ed25519 yil327@dsmlp-login.ucsd.edu /dsmlp/home-fs03/74/874/yil327/start-vscode.sh
+  HostName dsmlp-login.ucsd.edu
+  HostKeyAlias vscode-dsmlp
+  IdentitiesOnly yes
+  ForwardAgent yes
+  AddKeysToAgent yes
+  ConnectTimeout 100
+  ProxyCommand ssh -i ~/.ssh/id_ed25519 yil327@dsmlp-login.ucsd.edu /dsmlp/home-fs03/74/874/yil327/start-vscode.sh
 
 Host greg
   HostName 100.90.26.5 
