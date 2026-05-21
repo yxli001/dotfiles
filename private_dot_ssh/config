@@ -35,25 +35,23 @@ Host shrek-ipa
 Host fiona
   HostName 132.249.248.229
 
-Host zixian
+Host 10.*.*.*
   ProxyJump fiona
-  HostName 10.2.1.11
+
+Host zixian
+  HostName 132.249.248.231
 
 Host gauri
-  ProxyJump fiona
-  HostName 10.2.1.14
+  HostName 132.249.248.235
 
 Host matthew 
-  ProxyJump fiona
-  HostName 10.2.1.12
+  HostName 132.249.248.232
 
 Host monster
-  ProxyJump fiona
-  HostName 10.2.1.10
+  HostName 132.249.248.234
 
 Host khai
-  ProxyJump fiona
-  HostName 10.2.1.13
+  HostName 132.249.248.233
 
 Host waiter
   HostName waiter.ucsd.edu
