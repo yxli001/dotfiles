@@ -1,6 +1,3 @@
-Host *
-  User yil327
-
 Host cycore-beta
   HostName cycorecibeta.ucsd.edu
   User cycore
@@ -15,15 +12,6 @@ Host ieng6
 Host expanse
   HostName login.expanse.sdsc.edu
   User yli70
-
-Host test-a
-  HostName 132.249.64.110
-
-Host test-b
-  HostName 132.249.64.111
-
-Host test-c
-  HostName 132.249.64.112
 
 Host shrek
   HostName scc.sdsc.edu
@@ -81,3 +69,6 @@ Host pi0
 Host pi1
   HostName 100.117.6.12
   User yxli
+
+Host *
+  User yil327
