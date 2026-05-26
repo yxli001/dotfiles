@@ -26,20 +26,23 @@ Host fiona
 Host 10.*.*.*
   ProxyJump fiona
 
+Host atlantis
+  Hostname 132.249.248.230
+
 Host zixian
   HostName 132.249.248.231
-
-Host gauri
-  HostName 132.249.248.235
 
 Host matthew 
   HostName 132.249.248.232
 
+Host khai
+  HostName 132.249.248.233
+
 Host monster
   HostName 132.249.248.234
 
-Host khai
-  HostName 132.249.248.233
+Host gauri
+  HostName 132.249.248.235
 
 Host waiter
   HostName waiter.ucsd.edu
