@@ -1,11 +1,10 @@
 #!/bin/sh
 set -eu
 
-if [ -x "$HOME/.local/bin/starship" ] || command -v starship >/dev/null 2>&1; then
-  exit 0
+# Starship
+if [ ! -x "$HOME/.local/bin/starship" ] && ! command -v starship >/dev/null 2>&1; then
+  curl -sS https://starship.rs/install.sh | sh -s -- -y -b "$HOME/.local/bin"
 fi
-
-curl -sS https://starship.rs/install.sh | sh -s -- -y -b "$HOME/.local/bin"
 
 # install a nerd font
 FONT_NAME="JetBrainsMono"
