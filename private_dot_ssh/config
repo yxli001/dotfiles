@@ -27,7 +27,14 @@ Host 10.*.*.*
   ProxyJump fiona
 
 Host atlantis
-  Hostname 132.249.248.230
+  Hostname login.scc.sdsc.edu
+
+Host epi
+  Hostname 132.249.248.254
+  User sccadm
+
+Host marvell
+  Hostname 132.249.248.236
 
 Host zixian
   HostName 132.249.248.231
