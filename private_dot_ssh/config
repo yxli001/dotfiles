@@ -81,4 +81,5 @@ Host pi1
   User yxli
 
 Host *
+  SetEnv TERM=xterm-256color
   User yil327
