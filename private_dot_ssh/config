@@ -16,7 +16,7 @@ Host expanse
 Host shrek
   HostName scc.sdsc.edu
 
-Host shrek-ipa
+Host dc-replica
   HostName 10.1.0.3
   ProxyJump shrek
 
@@ -50,6 +50,29 @@ Host monster
 
 Host gauri
   HostName 132.249.248.235
+
+Host heihei 
+  HostName 132.249.248.238
+
+Host scc26-replica
+  HostName 10.26.0.4
+
+Host moana
+  HostName 10.26.0.2
+
+Host maui
+  HostName 10.26.0.3
+
+Match Host 10.26.*.*
+  ProxyJump heihei 
+
+Host acm-caprover
+  HostName 54.151.48.18
+  User ubuntu
+
+Host acm-monitoring
+  HostName 54.183.4.217
+  User ubuntu
 
 Host waiter
   HostName waiter.ucsd.edu
