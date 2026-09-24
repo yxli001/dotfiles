@@ -1,1 +1,1 @@
-path_append "~/.opencode/bin"
+path_append "$HOME/.opencode/bin"
