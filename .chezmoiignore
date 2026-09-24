@@ -1,2 +1,4 @@
 keys/**
 ~/.config/btop/btop.conf
+~/.config/opencode/node_modules/
+~/.config/opencode/package-lock.json
