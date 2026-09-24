@@ -8,7 +8,7 @@
     "azure": {
       "npm": "@ai-sdk/azure",
       "options": {
-        "apiKey": "",
+        "apiKey": "{env:ANTHROPIC_API_KEY}",
         "resourceName": "yxli-models",
         "apiVersion": "v1"
       },
