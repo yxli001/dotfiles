@@ -13,12 +13,14 @@
         "apiVersion": "v1"
       },
       "models": {
-        "gpt-5.6-sol": { "name": "gpt-5.6-sol" },
-        "gpt-5.6-terra": { "name": "gpt-5.6-terra" },
-        "gpt-5.3-codex": { "name": "gpt-5.3-codex" },
-        "DeepSeek-V4-Flash": { "name": "DeepSeek-V4-Flash" }
+        "gpt-6-sol": { "name": "gpt-6-sol", "limit": { "context": 272000, "output": 128000 } },
+        "gpt-6-luna": { "name": "gpt-6-luna", "limit": { "context": 272000, "output": 128000 } },
+        "gpt-5.6-terra": { "name": "gpt-5.6-terra", "limit": { "context": 272000, "output": 128000 } }
       }
     }
+  },
+  "agent": {
+    "build": { "disable": true }
   },
   "mcp": {
     "playwright": {
@@ -37,3 +39,4 @@
     }
   }
 }
+
