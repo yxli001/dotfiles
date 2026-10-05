@@ -2,6 +2,9 @@ shell-integration-features = no-cursor
 cursor-style-blink = false
 cursor-style = block
 
+# mac specific
+macos-option-as-alt = true
+
 # keybinds
 keybind = ctrl+w=close_tab
 keybind = ctrl+t=new_tab
