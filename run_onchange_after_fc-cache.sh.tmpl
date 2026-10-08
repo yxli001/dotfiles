@@ -1,0 +1,3 @@
+#!/bin/bash
+# fonts hash: {{ output "sh" "-c" "cat ~/.local/share/fonts/JetBrainsMonoNerdFont/*.ttf 2>/dev/null | sha256sum" }}
+command -v fc-cache >/dev/null && fc-cache -f

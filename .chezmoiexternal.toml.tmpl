@@ -1,0 +1,9 @@
+{{- $fontDir := ".local/share/fonts/JetBrainsMonoNerdFont" -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $fontDir = "Library/Fonts/JetBrainsMonoNerdFont" -}}
+{{- end }}
+[{{ $fontDir | quote }}]
+    type = "archive"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz"
+    refreshPeriod = "168h"
+    include = ["*.ttf"]
