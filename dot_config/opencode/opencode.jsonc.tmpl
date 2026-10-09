@@ -17,6 +17,17 @@
         "gpt-6-luna": { "name": "gpt-6-luna", "limit": { "context": 272000, "output": 128000 } },
         "gpt-5.6-terra": { "name": "gpt-5.6-terra", "limit": { "context": 272000, "output": 128000 } }
       }
+    },
+    "openwebui": {
+      "name": "Open WebUI",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "https://ai.scc.sdsc.edu/api",
+        "apiKey": "{{ .opencode_openwebui_api_key }}"
+      },
+      "models": {
+        "qwen3.8-flash-next": { "name": "qwen3.8-flash-next", "limit": { "context": 272000, "output": 128000 } }
+      }
     }
   },
   "agent": {
