@@ -1,8 +1,8 @@
 ---
 description: Makes a code change, runs the tests, and reports what it did. Give it the goal, the files, and how to check it worked.
 mode: subagent
-model: azure/gpt-5.6-terra
-reasoningEffort: medium
+model: openwebui/qwen3.8-flash-next
+reasoningEffort: xhigh
 permission:
   task: deny
   bash:

@@ -1,7 +1,7 @@
 ---
 description: Main agent. Plans the work, hands reading to explorer and edits to fixer, checks the result.
 mode: primary
-model: azure/gpt-6-sol
+model: azure/gpt-6-astra
 reasoningEffort: high
 permission:
   task:

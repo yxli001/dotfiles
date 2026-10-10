@@ -1,8 +1,8 @@
 ---
 description: Read-only. Searches the codebase and looks up external docs. Use for any "where is X / how does Y work / what does this API do" question.
 mode: subagent
-model: azure/gpt-6-luna
-reasoningEffort: low
+model: openwebui/qwen3.8-flash-next
+reasoningEffort: xhigh 
 permission:
   edit: deny
   task: deny
