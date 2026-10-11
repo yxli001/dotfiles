@@ -8,3 +8,6 @@ macos-option-as-alt = true
 # keybinds
 keybind = ctrl+w=close_tab
 keybind = ctrl+t=new_tab
+keybind = alt+left=text:\x1bb
+keybind = alt+right=text:\x1bf
+keybind = alt+backspace=text:\x1b\x7f
