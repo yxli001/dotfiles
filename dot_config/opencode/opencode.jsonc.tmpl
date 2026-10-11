@@ -31,7 +31,46 @@
     }
   },
   "agent": {
-    "build": { "disable": true }
+    "build": { "disable": true },
+
+    "explorer": {
+      "description": "Read-only. Searches the codebase and looks up external docs. Use for any \"where is X / how does Y work / what does this API do\" question.",
+      "mode": "subagent",
+      "model": "openwebui/qwen3.8-flash-next",
+      "reasoningEffort": "xhigh",
+      "prompt": "{file:./prompts/explorer.md}",
+      "permission": { "edit": "deny", "task": "deny", "webfetch": "allow", "websearch": "allow" }
+    },
+    "explorer-luna": {
+      "description": "Backup explorer on Azure (paid). Same job as explorer. Use only when explorer fails or is unreachable.",
+      "mode": "subagent",
+      "model": "azure/gpt-6-luna",
+      "reasoningEffort": "xhigh",
+      "prompt": "{file:./prompts/explorer.md}",
+      "permission": { "edit": "deny", "task": "deny", "webfetch": "allow", "websearch": "allow" }
+    },
+    "worker": {
+      "description": "Makes a code change, runs the tests, and reports what it did. Give it the goal, the files, and how to check it worked.",
+      "mode": "subagent",
+      "model": "openwebui/qwen3.8-flash-next",
+      "reasoningEffort": "xhigh",
+      "prompt": "{file:./prompts/worker.md}",
+      "permission": {
+        "task": "deny",
+        "bash": { "*": "ask", "git push*": "deny", "git reset --hard*": "deny", "rm -rf*": "deny" }
+      }
+    },
+    "worker-luna": {
+      "description": "Backup worker on Azure (paid). Same job as worker. Use only when worker fails or is unreachable.",
+      "mode": "subagent",
+      "model": "azure/gpt-6-luna",
+      "reasoningEffort": "xhigh",
+      "prompt": "{file:./prompts/worker.md}",
+      "permission": {
+        "task": "deny",
+        "bash": { "*": "ask", "git push*": "deny", "git reset --hard*": "deny", "rm -rf*": "deny" }
+      }
+    }
   },
   "mcp": {
     "playwright": {
