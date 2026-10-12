@@ -45,7 +45,7 @@
       "description": "Backup explorer on Azure (paid). Same job as explorer. Use only when explorer fails or is unreachable.",
       "mode": "subagent",
       "model": "azure/gpt-6-luna",
-      "reasoningEffort": "xhigh",
+      "reasoningEffort": "high",
       "prompt": "{file:./prompts/explorer.md}",
       "permission": { "edit": "deny", "task": "deny", "webfetch": "allow", "websearch": "allow" }
     },
@@ -64,7 +64,7 @@
       "description": "Backup worker on Azure (paid). Same job as worker. Use only when worker fails or is unreachable.",
       "mode": "subagent",
       "model": "azure/gpt-6-luna",
-      "reasoningEffort": "xhigh",
+      "reasoningEffort": "high",
       "prompt": "{file:./prompts/worker.md}",
       "permission": {
         "task": "deny",
