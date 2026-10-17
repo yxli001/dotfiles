@@ -74,6 +74,10 @@ Host acm-monitoring
   HostName 54.183.4.217
   User ubuntu
 
+Host acm-vw
+  HostName 50.18.151.91
+  User ubuntu
+
 Host waiter
   HostName waiter.ucsd.edu
 
