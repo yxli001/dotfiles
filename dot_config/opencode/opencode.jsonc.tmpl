@@ -1,92 +1,112 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": [
-    "@plannotator/opencode@latest"
-  ],
-  "model": "azure/gpt-6-astra",
-  "provider": {
-    "azure": {
-      "npm": "@ai-sdk/azure",
+  "plugins": [
+    // orchestrator is listed so it gets submit_plan; "plan" is plannotator's default.
+    {
+      "package": "@plannotator/opencode@latest",
       "options": {
+        "workflow": "plan-agent",
+        "planningAgents": ["plan", "orchestrator"]
+      }
+    }
+  ],
+  "model": "azure/gpt-6-sol",
+  "providers": {
+    "azure": {
+      "package": "aisdk:@ai-sdk/azure",
+      "settings": {
         "apiKey": "{{ .opencode_azure_api_key }}", 
         "resourceName": "yxli-models",
         "apiVersion": "v1"
       },
       "models": {
-        "gpt-6-astra": { "name": "gpt-6-astra", "limit": { "context": 272000, "output": 128000 } },
-        "gpt-6-sol": { "name": "gpt-6-sol", "limit": { "context": 272000, "output": 128000 } },
-        "gpt-6-luna": { "name": "gpt-6-luna", "limit": { "context": 272000, "output": 128000 } },
+        "gpt-6-astra": { "limit": { "context": 272000, "output": 128000 } },
+        "gpt-6-sol": { "limit": { "context": 272000, "output": 128000 } },
+        "gpt-6-luna": { "limit": { "context": 272000, "output": 128000 } },
       }
     },
     "openwebui": {
       "name": "Open WebUI",
-      "npm": "@ai-sdk/openai-compatible",
-      "options": {
+      "package": "aisdk:@ai-sdk/openai-compatible",
+      "settings": {
         "baseURL": "https://ai.scc.sdsc.edu/api",
         "apiKey": "{{ .opencode_openwebui_api_key }}"
       },
       "models": {
-        "qwen3.8-flash-next": { "name": "qwen3.8-flash-next", "limit": { "context": 272000, "output": 128000 } }
+        "qwen3.8-flash-next": { "limit": { "context": 131072, "output": 16384 } }
       }
     }
   },
-  "agent": {
-    "build": { "disable": true },
+  "agents": {
+    "build": { "disabled": true },
 
     "explorer": {
       "description": "Read-only. Searches the codebase and looks up external docs. Use for any \"where is X / how does Y work / what does this API do\" question.",
       "mode": "subagent",
       "model": "openwebui/qwen3.8-flash-next",
-      "reasoningEffort": "xhigh",
-      "prompt": "{file:./prompts/explorer.md}",
-      "permission": { "edit": "deny", "task": "deny", "webfetch": "allow", "websearch": "allow" }
+      "system": "{file:./prompts/explorer.md}",
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "*", "effect": "deny" },
+        { "action": "webfetch", "resource": "*", "effect": "allow" },
+        { "action": "websearch", "resource": "*", "effect": "allow" }
+      ]
     },
     "explorer-luna": {
       "description": "Backup explorer on Azure (paid). Same job as explorer. Use only when explorer fails or is unreachable.",
       "mode": "subagent",
       "model": "azure/gpt-6-luna",
-      "reasoningEffort": "high",
-      "prompt": "{file:./prompts/explorer.md}",
-      "permission": { "edit": "deny", "task": "deny", "webfetch": "allow", "websearch": "allow" }
+      "system": "{file:./prompts/explorer.md}",
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "*", "effect": "deny" },
+        { "action": "webfetch", "resource": "*", "effect": "allow" },
+        { "action": "websearch", "resource": "*", "effect": "allow" }
+      ]
     },
     "worker": {
       "description": "Makes a code change, runs the tests, and reports what it did. Give it the goal, the files, and how to check it worked.",
       "mode": "subagent",
       "model": "openwebui/qwen3.8-flash-next",
-      "reasoningEffort": "xhigh",
-      "prompt": "{file:./prompts/worker.md}",
-      "permission": {
-        "task": "deny",
-        "bash": { "*": "ask", "git push*": "deny", "git reset --hard*": "deny", "rm -rf*": "deny" }
-      }
+      "system": "{file:./prompts/worker.md}",
+      "permissions": [
+        { "action": "shell", "resource": "*", "effect": "ask" },
+        { "action": "shell", "resource": "git push*", "effect": "deny" },
+        { "action": "shell", "resource": "git reset --hard*", "effect": "deny" },
+        { "action": "shell", "resource": "rm -rf*", "effect": "deny" },
+        { "action": "subagent", "resource": "*", "effect": "deny" }
+      ]
     },
     "worker-luna": {
       "description": "Backup worker on Azure (paid). Same job as worker. Use only when worker fails or is unreachable.",
       "mode": "subagent",
       "model": "azure/gpt-6-luna",
-      "reasoningEffort": "high",
-      "prompt": "{file:./prompts/worker.md}",
-      "permission": {
-        "task": "deny",
-        "bash": { "*": "ask", "git push*": "deny", "git reset --hard*": "deny", "rm -rf*": "deny" }
-      }
+      "system": "{file:./prompts/worker.md}",
+      "permissions": [
+        { "action": "shell", "resource": "*", "effect": "ask" },
+        { "action": "shell", "resource": "git push*", "effect": "deny" },
+        { "action": "shell", "resource": "git reset --hard*", "effect": "deny" },
+        { "action": "shell", "resource": "rm -rf*", "effect": "deny" },
+        { "action": "subagent", "resource": "*", "effect": "deny" }
+      ]
     }
   },
   "mcp": {
-    "playwright": {
-      "type": "local",
-      "command": [
-        "npx",
-        "@playwright/mcp@latest"
-      ],
-      "enabled": true
-    },
-    "figma": {
-      "type": "remote",
-      "url": "http://127.0.0.1:3845/mcp",
-      "oauth": false,
-      "enabled": true
+    "servers": {
+      "playwright": {
+        "type": "local",
+        "command": [
+          "npx",
+          "@playwright/mcp@latest"
+        ],
+        "disabled": false
+      },
+      "figma": {
+        "type": "remote",
+        "url": "http://127.0.0.1:3845/mcp",
+        "oauth": false,
+        "disabled": false
+      }
     }
   }
 }
-
