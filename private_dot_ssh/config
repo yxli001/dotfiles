@@ -52,7 +52,7 @@ Host gauri
   HostName 132.249.248.235
 
 Host heihei 
-  HostName 132.249.248.238
+  HostName 132.249.64.42
 
 Host scc26-replica
   HostName 10.26.0.4
