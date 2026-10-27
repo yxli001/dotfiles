@@ -95,7 +95,7 @@ Host vscode-dsmlp
   ConnectTimeout 100
   ProxyCommand ssh -i ~/.ssh/id_ed25519 yil327@dsmlp-login.ucsd.edu /dsmlp/home-fs03/74/874/yil327/start-vscode.sh
 
-Host greg
+Host orion 
   HostName 100.90.26.5 
   User yxli
 
