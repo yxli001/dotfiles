@@ -1,3 +1,4 @@
+.config/nvim/lazyvim.json
 keys/**
 ~/.config/btop/btop.conf
 ~/.config/opencode/node_modules/
