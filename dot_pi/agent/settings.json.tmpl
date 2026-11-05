@@ -1,0 +1,44 @@
+{
+  "$schema": "https://pi.dev/schemas/settings.schema.json",
+  "tuiMode": "regular",
+  "defaultProvider": "openai",
+  "defaultModel": "gpt-6.1-sol",
+  "subagents": {
+    "agentOverrides": {
+      "scout": {
+        "model": "openai/gpt-6-luna",
+        "thinking": "low"
+      },
+      "researcher": {
+        "model": "openai/gpt-6.1-sol",
+        "thinking": "medium"
+      },
+      "evidence-auditor": {
+        "model": "openai/gpt-6.1-sol",
+        "thinking": "high"
+      },
+      "oracle": {
+        "model": "openai/gpt-6-astra",
+        "thinking": "high"
+      },
+      "worker": {
+        "model": "openwebui/qwen3.8-flash-next",
+        "thinking": "xhigh"
+      },
+      "reviewer": {
+        "model": "openai/gpt-6-astra",
+        "thinking": "high"
+      }
+    }
+  },
+  "packages": [
+    "npm:pi-subagents",
+    "npm:@dietrichgebert/ponytail",
+    "npm:@gotgenes/pi-permission-system",
+    "npm:pi-web-access",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@mtrojnar/pi-usage",
+    "npm:@plannotator/pi-extension",
+    "npm:@czottmann/pi-automode"
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "forceTopLevelAsync": true,
+  "disabledFeatures": ["agent-management"]
+}

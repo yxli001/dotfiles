@@ -1,0 +1,21 @@
+{
+  "$schema": "https://pi.dev/schemas/models.schema.json",
+  "providers": {
+    "azure": {
+      "baseUrl": "https://yxli-models.openai.azure.com",
+      "api": "azure-openai-responses",
+      "apiKey": "{{ .azure_openai_api_key }}",
+      "models": [
+        { "id": "gpt-6-sol" }
+      ]
+    },
+    "openwebui": {
+      "baseUrl": "https://ai.scc.sdsc.edu/api",
+      "api": "openai-completions",
+      "apiKey": "{{ .openwebui_api_key }}",
+      "models": [
+        { "id": "qwen3.8-flash-next" }
+      ]
+    }
+  }
+}

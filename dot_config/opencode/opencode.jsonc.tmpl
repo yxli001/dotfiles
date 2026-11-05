@@ -15,7 +15,7 @@
     "azure": {
       "package": "aisdk:@ai-sdk/azure",
       "settings": {
-        "apiKey": "{{ .opencode_azure_api_key }}", 
+        "apiKey": "{{ .azure_openai_api_key }}", 
         "resourceName": "yxli-models",
         "apiVersion": "v1"
       },
@@ -30,7 +30,7 @@
       "package": "aisdk:@ai-sdk/openai-compatible",
       "settings": {
         "baseURL": "https://ai.scc.sdsc.edu/api",
-        "apiKey": "{{ .opencode_openwebui_api_key }}"
+        "apiKey": "{{ .openwebui_api_key }}"
       },
       "models": {
         "qwen3.8-flash-next": { "limit": { "context": 131072, "output": 16384 } }

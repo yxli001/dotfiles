@@ -1,0 +1,24 @@
+{
+  "autoMode": {
+    "enabled": true,
+    "classifierModel": "openai/gpt-6.1-sol",
+    "allowInsideWorkingDirectory": true
+  },
+  "permissions": {
+    "allow": [
+      "ask_user_question",
+      "contact_supervisor",
+      "subagent_supervisor"
+    ],
+    "deny": [
+      "bash(git commit*)",
+      "bash(git push*)",
+      "bash(git -C * commit*)",
+      "bash(git -C * push*)",
+      "bash(git -c * commit*)",
+      "bash(git -c * push*)",
+      "bash(git * commit*)",
+      "bash(git * push*)"
+    ]
+  }
+}
