@@ -52,7 +52,7 @@
     "external_directory_read": "allow",
     "external_directory_write": {
       "*": "ask",
-      "/tmp/*": "allow
+      "/tmp/*": "allow"
     },
     "subagent": "allow",
     "subagents_enable": "allow",
