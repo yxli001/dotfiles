@@ -52,7 +52,8 @@
     "external_directory_read": "allow",
     "external_directory_write": {
       "*": "ask",
-      "/tmp/*": "allow"
+      "/tmp/*": "allow",
+      "~/.pi/agent/sessions/*": "allow"
     },
     "subagent": "allow",
     "subagents_enable": "allow",
