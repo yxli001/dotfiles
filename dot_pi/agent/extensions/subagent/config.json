@@ -1,4 +1,5 @@
 {
   "forceTopLevelAsync": true,
-  "disabledFeatures": ["agent-management"]
+  "disabledFeatures": ["agent-management"],
+  "timeoutMs": 5400000
 }
