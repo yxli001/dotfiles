@@ -4,7 +4,7 @@
   "forwardingTimeoutMs": 600000,
   "authorizerChain": [],
   "permission": {
-    "*": "ask",
+    "*": "allow",
     "path_read": {
       "*": "allow",
       "~/.pi/agent/auth.json": "deny",
@@ -49,14 +49,7 @@
     "grep": "allow",
     "find": "allow",
     "ls": "allow",
-    "write": "ask",
-    "edit": "ask",
-    "external_directory": "ask",
-    "external_directory_read": {
-      "*": "ask",
-      "~/.pi/agent/sessions/*": "allow",
-      "~/.pi/agent/sessions/permission-forwarding/*": "deny"
-    },
+    "external_directory_read": "allow",
     "external_directory_write": "ask",
     "subagent": "allow",
     "subagents_enable": "allow",
