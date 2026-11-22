@@ -2,31 +2,34 @@
   "$schema": "https://pi.dev/schemas/settings.schema.json",
   "tuiMode": "regular",
   "defaultProvider": "openai",
-  "defaultModel": "gpt-6.1-sol",
   "subagents": {
     "agentOverrides": {
       "scout": {
-        "model": "openai/gpt-6-luna",
-        "thinking": "low"
-      },
-      "researcher": {
-        "model": "openai/gpt-6.1-sol",
+        "model": "openwebui/qwen3.8-flash-next",
         "thinking": "medium"
       },
-      "evidence-auditor": {
-        "model": "openai/gpt-6.1-sol",
-        "thinking": "high"
+      "delegate": {
+        "model": "openwebui/qwen3.8-flash-next",
+        "thinking": "medium"
       },
-      "oracle": {
-        "model": "openai/gpt-6-astra",
-        "thinking": "high"
-      },
-      "worker": {
+      "researcher": {
         "model": "openwebui/qwen3.8-flash-next",
         "thinking": "xhigh"
       },
+      "worker": {
+        "model": "azure/gpt-6.1-terra",
+        "thinking": "high"
+      },
       "reviewer": {
-        "model": "openai/gpt-6-astra",
+        "model": "openai-codex/gpt-6.2-sol",
+        "thinking": "high"
+      },
+      "evidence-auditor": {
+        "model": "azure/gpt-6.1-terra",
+        "thinking": "high"
+      },
+      "oracle": {
+        "model": "azure/gpt-6.2-sol",
         "thinking": "high"
       }
     }
