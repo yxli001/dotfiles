@@ -23,7 +23,7 @@ Host dc-replica
 Host fiona
   HostName 132.249.248.229
 
-Host 10.*.*.*
+Host 10.2.*.*
   ProxyJump fiona
 
 Host atlantis
@@ -50,21 +50,6 @@ Host monster
 
 Host gauri
   HostName 132.249.248.235
-
-Host heihei 
-  HostName 132.249.64.42
-
-Host scc26-replica
-  HostName 10.26.0.4
-
-Host moana
-  HostName 10.26.0.2
-
-Host maui
-  HostName 10.26.0.3
-
-Match Host 10.26.*.*
-  ProxyJump heihei 
 
 Host acm-caprover
   HostName 54.151.48.18
