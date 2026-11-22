@@ -34,6 +34,43 @@
       }
     }
   },
+  "contextPrune": {
+    "enabled": true,
+    "showPruneStatusLine": true,
+    "summarizerModel": "azure/gpt-6.1-terra",
+    "summarizerThinking": "low",
+    "pruneOn": "agent-message",
+    "batchingMode": "turn",
+    "quietOversizedSkips": false,
+    "minBatchChars": 2000,
+    "recoveryGraceTurns": 3,
+    "summarizerIdleTimeoutMs": 45000,
+    "summarizerMaxTimeoutMs": 180000,
+    "protectedTools": [],
+    "protectedPaths": [
+      "**/skills/**/*.md",
+      "**/gauntlet-overrides.md"
+    ],
+    "chainCompression": {
+      "enabled": true,
+      "rollingWindow": 3,
+      "idleCleanupMinutes": 180,
+      "stripFinalAssistantThinking": true,
+      "fuseRangeSummary": true
+    },
+    "purgeErrors": {
+      "enabled": true,
+      "cooldownTurns": 2,
+      "minArgChars": 500
+    },
+    "dedupByContentHash": true,
+    "autoBudgetThreshold": null,
+    "spillThreshold": 65536,
+    "spillPreviewBytes": 2048,
+    "budgetTurnDelta": null,
+    "frontierGapThresholdTokens": null,
+    "maxImagesPerRequest": null
+  },
   "packages": [
     "npm:pi-subagents",
     "npm:@dietrichgebert/ponytail",
